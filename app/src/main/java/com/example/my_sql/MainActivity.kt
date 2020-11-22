@@ -31,20 +31,13 @@ class MainActivity : AppCompatActivity() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             addPermissions(
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.READ_CONTACTS
             )
         }
 
         findViewById<RecyclerView>(R.id.RecyclerView).apply {
             adapter = itemAdapter
         }
-
-        ActivityCompat.requestPermissions(
-            this,
-            arrayOf(Manifest.permission.READ_CONTACTS),
-            100
-        )
 
         uploadButton.setOnClickListener {
             uploadDatabaseNewContacts()
